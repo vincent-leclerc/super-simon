@@ -1,0 +1,78 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  text-align: center;
+  background-color: #fafafa;
+}
+
+h1 {
+  font-size: 50px;
+  color: #120078;
+  padding-top: 8%;
+}
+
+.game {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 50vh;
+  width: 50vw;
+  margin: 0 auto;
+}
+
+.launch-btn {
+  background-color: #120078;
+  border-radius: 5px;
+  color: #fafafa;
+  font-size: 20px;
+  height: 100px;
+  width: 200px;
+}
+
+.launch-btn:hover {
+  background-color: #fafafa;
+  color: #120078;
+}
+
+.btn {
+  border-radius: 10px;
+  color: #fafafa;
+  font-size: 20px;
+  height: 250px;
+  width: 250px;
+  border: 4px solid #111;
+}
+
+.btn--green {
+    background-color: green;
+}
+
+.btn--red {
+    background-color: red;
+}
+
+.btn--yellow {
+    background-color: yellow;
+}
+
+.btn--blue {
+    background-color: blue;
+}
+
+#help {
+  position: absolute;
+  font-size: 40px;
+  color: #120078;
+  top: 0;
+  right: 0;
+  padding-top: 40px;
+  padding-right: 70px;
+}
+
+
+#help:hover {
+    color: #1687a7;
+}
