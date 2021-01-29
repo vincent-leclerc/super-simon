@@ -1,0 +1,12 @@
+{
+  "name": "super-simon",
+  "version": "0.1.0",
+  "description": "Super Simon game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch ./sass/main.scss:public/css/style.css"
+  },
+  "author": "Vincent Leclerc",
+  "license": "ISC"
+}

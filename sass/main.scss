@@ -44,22 +44,22 @@ h1 {
   height: 250px;
   width: 250px;
   border: 4px solid #111;
-}
 
-.btn--green {
+  &--green {
     background-color: green;
-}
+  }
 
-.btn--red {
+  &--red {
     background-color: red;
-}
+  }
 
-.btn--yellow {
+  &--yellow {
     background-color: yellow;
-}
+  }
 
-.btn--blue {
+  &--blue {
     background-color: blue;
+  }
 }
 
 #help {
@@ -72,7 +72,6 @@ h1 {
   padding-right: 70px;
 }
 
-
 #help:hover {
-    color: #1687a7;
+  color: #1687a7;
 }
