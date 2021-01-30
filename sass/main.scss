@@ -1,3 +1,10 @@
+/*------------------------------------*\
+  #GLOBALS
+\*------------------------------------*/
+
+$font-family-title: 'Rubik', sans-serif;
+$font-family-content: 'Roboto', sans-serif;
+
 * {
   margin: 0;
   padding: 0;
@@ -6,13 +13,28 @@
 body {
   text-align: center;
   background-color: #fafafa;
+  font-family: $font-family-content; 
 }
 
+/*------------------------------------*\
+  #HEADINGS
+\*------------------------------------*/
+
 h1 {
-  font-size: 50px;
+  font-family: $font-family-title;
+  font-size: 4rem;
   color: #120078;
   padding-top: 8%;
 }
+
+h2 {
+  font-family: $font-family-title;
+  font-size: 2.2rem;
+}
+
+/*------------------------------------*\
+  #GAME-INTERFACE
+\*------------------------------------*/
 
 .game {
   display: flex;
@@ -30,11 +52,11 @@ h1 {
   font-size: 20px;
   height: 100px;
   width: 200px;
-}
 
-.launch-btn:hover {
-  background-color: #fafafa;
-  color: #120078;
+  &:hover {
+    background-color: #fafafa;
+    color: #120078;
+  }
 }
 
 .btn {
@@ -62,6 +84,10 @@ h1 {
   }
 }
 
+/*------------------------------------*\
+  #HELP-MODAL
+\*------------------------------------*/
+
 #help {
   position: absolute;
   font-size: 40px;
@@ -70,8 +96,46 @@ h1 {
   right: 0;
   padding-top: 40px;
   padding-right: 70px;
+
+  &:hover {
+    color: #1687a7;
+  }
 }
 
-#help:hover {
-  color: #1687a7;
+.help-modal {
+  display: none;
+  align-items: center;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  background-color: rgba(5, 9, 66, 0.3);
+
+  &__content {
+    background-color: #120078;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    color: #fafafa;
+    margin: 0 auto;
+    padding: 40px 70px;
+    height: 40vh;
+    width: 40vw;
+    text-align: left;
+
+    & p {
+      font-size: 1.2rem;
+      padding-top: 60px;
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.close {
+  font-size: 40px;
 }
