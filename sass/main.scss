@@ -2,8 +2,8 @@
   #GLOBALS
 \*------------------------------------*/
 
-$font-family-title: 'Rubik', sans-serif;
-$font-family-content: 'Roboto', sans-serif;
+$font-family-title: "Rubik", sans-serif;
+$font-family-content: "Roboto", sans-serif;
 
 * {
   margin: 0;
@@ -13,7 +13,7 @@ $font-family-content: 'Roboto', sans-serif;
 body {
   text-align: center;
   background-color: #fafafa;
-  font-family: $font-family-content; 
+  font-family: $font-family-content;
 }
 
 /*------------------------------------*\
@@ -22,9 +22,12 @@ body {
 
 h1 {
   font-family: $font-family-title;
-  font-size: 4rem;
+  font-size: 3rem;
   color: #120078;
-  padding-top: 8%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  grid-column: 2;
+  grid-row: 1;
 }
 
 h2 {
@@ -36,22 +39,53 @@ h2 {
   #GAME-INTERFACE
 \*------------------------------------*/
 
+.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 10% 10% 60% 20%;
+  height: 100vh;
+}
+
 .game {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 50vh;
-  width: 50vw;
-  margin: 0 auto;
+  grid-column: 2;
+  grid-row: 3;
+  display: grid;
+  grid-template-columns: 10% 25% 60px 25% 10%;
+  grid-template-rows: 5% 40% 60px 40% 5%;
+  justify-content: center;
+}
+
+.scores {
+  grid-column: 1;
+  grid-row: 2;
+  border: 4px solid #333;
+  border-radius: 10px;
+  width: 200px;
+  justify-self: center;
+
+  h3 {
+    border-bottom: 4px solid #333;
+  }
+
+  p {
+    text-align: left;
+    padding-left: 15px;
+  }
+}
+
+.launch-buttons {
+  grid-column: 2;
+  grid-row: 4;
 }
 
 .launch-btn {
   background-color: #120078;
   border-radius: 5px;
   color: #fafafa;
-  font-size: 20px;
-  height: 100px;
-  width: 200px;
+  font-size: 18px;
+  height: 60px;
+  width: 150px;
+  margin: 20px;
 
   &:hover {
     background-color: #fafafa;
@@ -60,27 +94,35 @@ h2 {
 }
 
 .btn {
-  border-radius: 10px;
+  border-radius: 20px;
   color: #fafafa;
   font-size: 20px;
-  height: 250px;
-  width: 250px;
+  height: 100%;
+  width: 100%;
   border: 4px solid #111;
 
   &--green {
     background-color: green;
+    grid-column: 2;
+    grid-row: 2;
   }
 
   &--red {
     background-color: red;
+    grid-column: 4;
+    grid-row: 2;
   }
 
   &--yellow {
     background-color: yellow;
+    grid-column: 2;
+    grid-row: 4;
   }
 
   &--blue {
     background-color: blue;
+    grid-column: 4;
+    grid-row: 4;
   }
 }
 
@@ -89,13 +131,13 @@ h2 {
 \*------------------------------------*/
 
 #help {
-  position: absolute;
+  grid-column: 3;
+  grid-row: 1;
+  justify-self: end;
   font-size: 40px;
   color: #120078;
-  top: 0;
-  right: 0;
-  padding-top: 40px;
-  padding-right: 70px;
+  padding-top: 4%;
+  padding-right: 4%;
 
   &:hover {
     color: #1687a7;
@@ -109,8 +151,6 @@ h2 {
   width: 100vw;
   height: 100vh;
   z-index: 1;
-  left: 0;
-  top: 0;
   background-color: rgba(5, 9, 66, 0.3);
 
   &__content {
