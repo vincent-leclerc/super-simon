@@ -70,7 +70,8 @@ h2 {
   grid-row: 4;
 }
 
-.launch-btn {
+.start-btn,
+.restart-btn {
   background-color: #120078;
   border-radius: 5px;
   color: #fafafa;
@@ -79,7 +80,8 @@ h2 {
   width: 150px;
   margin: 20px;
 }
-.launch-btn:hover {
+.start-btn:hover,
+.restart-btn:hover {
   background-color: #fafafa;
   color: #120078;
 }
