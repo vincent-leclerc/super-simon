@@ -71,7 +71,7 @@ h2 {
 }
 
 .start-btn,
-.restart-btn {
+.reinit-btn {
   background-color: #120078;
   border-radius: 5px;
   color: #fafafa;
@@ -81,7 +81,7 @@ h2 {
   margin: 20px;
 }
 .start-btn:hover,
-.restart-btn:hover {
+.reinit-btn:hover {
   background-color: #fafafa;
   color: #120078;
 }
