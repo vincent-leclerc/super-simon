@@ -186,3 +186,65 @@ h2 {
 .close {
   font-size: 40px;
 }
+
+
+/*------------------------------------*\
+  #GAME-OVER-MODAL
+\*------------------------------------*/
+
+.game-over-modal {
+  display: none;
+  align-items: center;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  background-color: rgba(5, 9, 66, 0.3);
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    background-color: #c70039;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    color: #fafafa;
+    margin: 0 auto;
+    padding: 40px 70px;
+    height: 40vh;
+    width: 40vw;
+    text-align: left;
+
+    & p {
+      font-size: 1.2rem;
+      padding-top: 60px;
+    }
+
+    & h3 {
+      padding-top: 30px;
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.close-go {
+  font-size: 40px;
+}
+
+.restart-btn {
+  background-color: #120078;
+  border-radius: 5px;
+  color: #fafafa;
+  font-size: 18px;
+  height: 60px;
+  width: 150px;
+  margin-top: 20px;
+
+  &:hover {
+    background-color: #fafafa;
+    color: #120078;
+  }
+}

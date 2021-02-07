@@ -20,14 +20,14 @@
 
   <body>
     <div class="container">
-      <h1>Super Simon</h1>
+      <h1 id="main-title">Super Simon</h1>
 
       <i id="help" class="fas fa-info-circle"></i>
 
       <div class="scores">
         <h3>Scores</h3>
-        <span id="lvl-score">Tours :</span>
-        <span id="button-score">Touches :</span>
+        <span class="lvl-score">Tours :</span>
+        <span class="button-score">Touches :</span>
       </div>
 
       <div class="help-modal">
@@ -46,6 +46,22 @@
             réinitialiser les scores, cliquer sur le bouton "Redémarrer". Bonne
             chance !
           </p>
+        </div>
+      </div>
+
+      <div class="game-over-modal">
+        <div class="game-over-modal__content">
+          <div class="game-over-modal__header">
+            <h2>Game Over !</h2>
+            <span class="close-go"><i class="fas fa-times"></i></span>
+          </div>
+          <p>
+            Vous pouvez retenter votre chance !
+          </p>
+          <h3>Vos scores</h3>
+          <span class="lvl-score">Tours :</span>
+          <span class="button-score">Touches :</span>
+          <button class="restart-btn">Relancer</button>
         </div>
       </div>
 
