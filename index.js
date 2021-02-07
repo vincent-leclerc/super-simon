@@ -22,9 +22,6 @@ let isSarted = false;
 let lvl = 0;
 let buttonsScore = 0;
 
-// scoreLvl.innerHTML = "Tours : " +  lvl;
-// scoreButtons.innerHTML = "Touches : " + buttonsScore;
-
 // Affiche la modal au clique de l'icone information
 $help.addEventListener("click", () => {
   $helpModal.style.display = "flex";
@@ -40,11 +37,11 @@ $closeGameOverModal.addEventListener("click", () => {
   $gameOverModal.style.display = "none";
 });
 
+// Lance la partie si pas déjà lancée
 $playButton.addEventListener("click", () => {
   if (!isSarted) {
     isSarted = true;
     newLevel();
-
   } else {
     alert("La partie est déjà lancée !");
   }
@@ -54,25 +51,23 @@ $reinitButton.addEventListener("click", () => {
   reinitialize();
 });
 
+// Bouton redémarrer de la modale game over
 $restartButton.addEventListener("click", () => {
   $gameOverModal.style.display = "none";
 
   if (!isSarted) {
     isSarted = true;
     newLevel();
-
   } else {
     alert("La partie est déjà lancée !");
   }
-
 });
 
+// Ecoute le bouton activé par l'utilisateur
 for (button of $gameButtons) {
   button.addEventListener("click", (ev) => {
     if (isSarted) {
       let userChoice = ev.target.value;
-      // console.log("User choice : " + userChoice);
-
       userColourPattern.push(userChoice);
 
       const colorIndex = userColourPattern.length - 1;
@@ -91,20 +86,27 @@ for (button of $gameButtons) {
 function newLevel() {
   let number = Math.floor(Math.random() * 4);
   let colour = $buttonColour[number];
+  let speed = 2000;
 
   gameColourPattern.push(colour);
 
-  // Séquence d'affichage des boutons
+  if (lvl === 1) speed = 1500;
+  if (lvl === 2) speed = 1300;
+  if (lvl === 3) speed = 1100;
+  if (lvl === 4) speed = 900;
+  if (lvl === 5) speed = 700;
+  if (lvl === 6) speed = 600;
+  if (lvl === 7) speed = 500;
+
+  // Séquence d'affichage des boutons, i permet de 'séquencer' l'affichage
   gameColourPattern.forEach((colour, i) => {
     setTimeout(() => {
       $activatedButton = document.querySelector(".btn--" + colour);
 
       playNote(colour);
       buttonAnimation($activatedButton, colour);
-    }, 400 * i);
+    }, speed * i);
   });
-
-  // console.log("Game colour pattern : " + gameColourPattern);
 
   for (score of $scoreLvl) {
     score.innerHTML = "Tours : " + lvl;
@@ -113,12 +115,10 @@ function newLevel() {
   lvl++;
 }
 
+// Compare chaque couleur utilisateur / jeu d'une séquence grâce à l'index correspondant
 function comparePatterns(i) {
   const currentGameColor = gameColourPattern[i];
   const currentUserColor = userColourPattern[i];
-
-  // console.log("Current game pattern : " + currentGameColor);
-  // console.log("Current user pattern : " + currentUserColor);
 
   if (currentUserColor === currentGameColor) {
     buttonsScore++;
@@ -129,7 +129,7 @@ function comparePatterns(i) {
 
     if (gameColourPattern.length === userColourPattern.length) {
       userColourPattern = [];
-      // console.log("Success !");
+
       setTimeout(() => {
         newLevel();
       }, 1000);
@@ -140,6 +140,7 @@ function comparePatterns(i) {
   }
 }
 
+// Réinitialise toutes les stats ainsi que l'affichage des scores
 function reinitialize() {
   lvl = 0;
   buttonsScore = 0;
@@ -151,6 +152,7 @@ function reinitialize() {
   $scoreButtons.innerHTML = "Touches : " + buttonsScore;
 }
 
+// Affiche un 'flash' et la note correspondante au bouton
 function buttonAnimation(b, color) {
   b.classList.add("flash");
 
@@ -162,9 +164,10 @@ function buttonAnimation(b, color) {
   setTimeout(() => {
     b.classList.remove("flash");
     b.innerHTML = "";
-  }, 400);
+  }, 500);
 }
 
+// Joue la note correspondant au bouton
 function playNote(colour) {
   let note;
 
