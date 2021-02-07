@@ -73,16 +73,13 @@ function newLevel() {
 
   gameColourPattern.push(colour);
 
-  // for (colour of gameColourPattern) {
-  //   $activatedButton = document.querySelector(".btn--" + colour);
-
-  //   setTimeout(() => {
-  //     buttonAnimation($activatedButton, colour);
-  //   }, 400);
-  // }
-
-  $activatedButton = document.querySelector(".btn--" + colour);
-  buttonAnimation($activatedButton, colour);
+  // Séquence d'affichage des boutons
+  gameColourPattern.forEach((colour, i) => {
+    setTimeout(() => {
+      $activatedButton = document.querySelector(".btn--" + colour);
+      buttonAnimation($activatedButton, colour);
+    }, 400 * i);
+  });
 
   console.log("Game colour pattern : " + gameColourPattern);
   $scoreLvl.innerHTML = "Tours : " + lvl;
