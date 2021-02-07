@@ -19,7 +19,6 @@ let isSarted = false;
 let lvl = 0;
 let buttonsScore = 0;
 
-
 // scoreLvl.innerHTML = "Tours : " +  lvl;
 // scoreButtons.innerHTML = "Touches : " + buttonsScore;
 
@@ -34,7 +33,6 @@ $closeModal.addEventListener("click", () => {
 });
 
 $playButton.addEventListener("click", () => {
-
   if (!isSarted) {
     isSarted = true;
     console.log(isSarted);
@@ -59,6 +57,9 @@ for (button of $gameButtons) {
 
       const colorIndex = userColourPattern.length - 1;
 
+      let $activatedButton = document.querySelector(".btn--" + userChoice);
+
+      buttonAnimation($activatedButton, userChoice);
       comparePatterns(colorIndex);
     } else {
       console.log("Veuillez cliquer sur 'Lancer une partie' pour jouer");
@@ -72,8 +73,19 @@ function newLevel() {
 
   gameColourPattern.push(colour);
 
+  // for (colour of gameColourPattern) {
+  //   $activatedButton = document.querySelector(".btn--" + colour);
+
+  //   setTimeout(() => {
+  //     buttonAnimation($activatedButton, colour);
+  //   }, 400);
+  // }
+
+  $activatedButton = document.querySelector(".btn--" + colour);
+  buttonAnimation($activatedButton, colour);
+
   console.log("Game colour pattern : " + gameColourPattern);
-  $scoreLvl.innerHTML = "Tours : " +  lvl;
+  $scoreLvl.innerHTML = "Tours : " + lvl;
   lvl++;
 }
 
@@ -90,7 +102,6 @@ function comparePatterns(i) {
     $scoreButtons.innerHTML = "Touches : " + buttonsScore;
 
     if (gameColourPattern.length === userColourPattern.length) {
-      
       userColourPattern = [];
       console.log("Success !");
       setTimeout(() => {
@@ -110,6 +121,20 @@ function reinitialize() {
   userColourPattern = [];
   isSarted = false;
 
-  $scoreLvl.innerHTML = "Tours : " +  lvl;
+  $scoreLvl.innerHTML = "Tours : " + lvl;
   $scoreButtons.innerHTML = "Touches : " + buttonsScore;
+}
+
+function buttonAnimation(b, color) {
+  b.classList.add("flash");
+
+  if (color === "green") b.innerHTML = "DO";
+  if (color === "red") b.innerHTML = "RE";
+  if (color === "yellow") b.innerHTML = "MI";
+  if (color === "blue") b.innerHTML = "FA";
+
+  setTimeout(() => {
+    b.classList.remove("flash");
+    b.innerHTML = "";
+  }, 400);
 }
