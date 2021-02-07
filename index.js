@@ -59,6 +59,7 @@ for (button of $gameButtons) {
 
       let $activatedButton = document.querySelector(".btn--" + userChoice);
 
+      playNote(userChoice);
       buttonAnimation($activatedButton, userChoice);
       comparePatterns(colorIndex);
     } else {
@@ -77,6 +78,8 @@ function newLevel() {
   gameColourPattern.forEach((colour, i) => {
     setTimeout(() => {
       $activatedButton = document.querySelector(".btn--" + colour);
+      
+      playNote(colour);
       buttonAnimation($activatedButton, colour);
     }, 400 * i);
   });
@@ -134,4 +137,17 @@ function buttonAnimation(b, color) {
     b.classList.remove("flash");
     b.innerHTML = "";
   }, 400);
+}
+
+function playNote(colour) {
+
+  let note;
+
+  if (colour === "green") note = "do";
+  if (colour === "red") note = "re";
+  if (colour === "yellow") note = "mi";
+  if (colour === "blue") note = "fa";
+
+  let sound = new Audio("sounds/" + note + ".mp3");
+  sound.play();
 }
